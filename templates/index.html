@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Sentiment Analysis</title>
+</head>
+<body class="bg-info " style="--bs-bg-opacity: .2">
+    <nav class="navbar bg-info shadow mb-5">
+        <div class="container-fluid">
+          <a class="navbar-brand ms-5 h1 text-white" href="#">
+            Sentiment Analyzer 
+          </a>
+        </div>
+    </nav>
+    <!-- <h1 class="text-center mb-5 text-white mt-3">Sentiment Analyzer</h1> -->
+    <div class="container text-center rounded shadow bg-white mt-5">
+        <form action="/predict" method="POST">
+            <div class="row justify-content-center">  
+                <div class="mb-3">
+                    <!-- <label for="exampleFormControlTextarea1" class="form-label">Input Kalimat</label> -->
+                    <textarea placeholder="Masukan kalimat disini..." class="form-control mt-4" id="exampleFormControlTextarea1" name="message" rows="6"></textarea>
+                </div> 
+            <div class="row text-center">
+                <input class="btn btn-primary btn-lg mt-2 mb-3  " type="submit" value="Submit">        
+            </div>
+            </div>      
+        </form>
+        
+    </div>
+    
+    {% if prediction==1 %}
+        <div class="container mt-5 shadow rounded mb-5 bg-transparent bg-gradient ps-0 pe-0" >
+            <div class="row justify-content-center">
+                <div class="text-center">
+                    <img class="rounded shadow"src="https://iili.io/bwjAZb.png" alt="bwjAZb.png" border="0" width="100%">
+                </div>
+            </div>
+        </div>
+    {% elif prediction==0 %}
+        <div class="container mt-5 shadow rounded mb-5 bg-transparent  ps-0 pe-0">
+            <div class="row justify-content-center">
+                <div class="text-center">
+                    <img class="rounded shadow" src="https://iili.io/bweCxe.png" alt="bwN43l.png" border="0" width="100%">
+                </div>
+            </div>
+        </div>        
+    {% endif %}
+    
+</body>
+</html>
